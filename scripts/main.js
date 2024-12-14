@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 li++
                 console.log(element)
                 works += `
-                <a href="${element.scr}" title="${element.title}" target="_blank" class="work" id="${element.id}">
+                <a href="/js/${element.scr}" title="${element.title}" target="_blank" class="work" id="${element.id}">
                 <span class="name" id="name">${element.name}</span>
                 <span class="lore" id="lore">${element.lore}</span>
                 <div class="writtenin" id="writtenin">

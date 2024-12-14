@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .buttons {
+            color: rgb(195, 131, 14) !important;
+            background-color: rgb(244,201,120);
+            font-size: calc(100% + 10px);
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .buttons .selected {
+            background-color: rgb(0, 17, 255);
+            color: rgb(255, 255, 255);
+        }
+
+        .buttons .disable {
+            background-color: rgb(255, 3, 3);
+            color: rgb(255, 255, 255);
+        }
+        table {
+            text-align: center;
+
+        }
+        body {
+            background-color: rgb(244,201,120);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="forms" class="buttons">
+        <p>Форматування</p>
+        <span style="color: blue;">■</span> - Включено
+        <span style="color: red;">■</span> - Відключено<br>
+        <div id="error"></div>
+        <button id="form-count" class="selected" onclick="buttonFunction(this, 'form-name')">По кількості</button> <br>
+        <button id="form-name" class="disable" onclick="buttonFunction(this, 'form-count')">По Імені</button> <br>
+        <input type="number" name="top" id="top" value="20" onclick="updateList()"> Який розмір топу?
+    </div>
+    <table id="top-list" class="top-list"></table>
+
+    <script>
+        function buttonFunction(activeButton, otherButtonId) {
+            activeButton.classList.add("selected");
+            activeButton.classList.remove("disable");
+
+            const otherButton = document.getElementById(otherButtonId);
+            otherButton.classList.add("disable");
+            otherButton.classList.remove("selected");
+            updateList();
+        }
+
+        function formatNumber(num) {
+            if (num >= 1000000000) {return (num / 1000000000).toFixed(1) + 'B'; // милиард
+            } else if (num >= 1000000) {return (num / 1000000).toFixed(1) + 'M'; // милион
+            } else if (num >= 1000) {return (num / 1000).toFixed(1) + 'K'; // тисячи
+            }return num; // если нечого не изменилось то вертаем значення
+        }
+        function updateList() {
+            const sizeTop = +document.getElementById("top").value;
+            if (sizeTop <= 0) {
+                document.getElementById("error").innerHTML = `Введіть число в розмір топу більше 1`;
+                return;
+            }
+            const countries = {
+                "Пакистан": 241000000, "В’єтнам": 100000000, "Бангладеш": 174000000,
+                "Бразилія": 214000000,
+                "Демократична Республіка Конго": 102000000,
+                "Філіппіни": 117000000,
+                "Китай": 1425000000,
+                "Нігерія": 223000000,
+                "Індонезія": 277000000,
+                "Японія": 125000000,
+                "Єгипет": 112000000,
+                "Ефіопія": 126000000,
+                "Індія": 1428000000,
+                "Південна Корея": 52000000,
+                "Мексика": 126000000,
+                "Туреччина": 89000000,
+                "Іран": 89000000,
+                "Непал": 32000000,
+                "США": 334000000,
+                "Африка": 1460000000
+            };
+            const list = [];
+            for (const country in countries) {
+                list.push({name: country,people: countries[country]});
+            }
+            const selectedButton = document.querySelector('.selected');
+            const buttonText = selectedButton.textContent;
+
+            // Сортировка
+            if (buttonText === "По кількості") {
+                list.sort((a, b) => a.people - b.people);
+                list.reverse();
+            } else {
+                list.sort((a, b) => a.name.localeCompare(b.name));
+            }
+            const topList = list.slice(0, sizeTop);
+
+            // Генерация
+            let text = '';
+            topList.forEach(item => {
+                text += `<tr><td>${item.name}</td><td>${formatNumber(item.people)}</td></tr>`;
+            });
+            document.getElementById("top-list").innerHTML = `<thead><tr><th>Name</th><th>Count</th></tr></thead><tbody>${text}</tbody>`;
+        }
+        updateList();
+    </script>
+
+</body>
+
+</html>

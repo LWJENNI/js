@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            font-weight: bold;
+        }
+        body {
+            background-color: chocolate;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="get">
+        <input type="text" id="text" value="Test"> веддіть текст<br>
+        <input type="number" name="speed" id="speed" value="1000"> speed<br>
+        <textarea name="color" id="color">rgb(0,0,255);
+            rgb(0,0,200);
+            rgb(0,0,190);
+            rgb(0,0,180);
+            rgb(0,0,170);
+            rgb(0,0,160);
+            rgb(0,0,150);
+            rgb(0,0,140);
+            rgb(0,0,130);
+            rgb(0,0,120);
+            rgb(0,0,110);
+            rgb(0,0,100)</textarea>
+    </form>
+    <div id="textout"></div>
+    <button onclick="startfun(document.getElementById('text').value)">confirm</button>
+    <script>
+        function startfun(text) {document.getElementById("textout").innerText = ``;let colorList = document.getElementById("color").value.split(";");const speed = document.getElementById("speed").valuetext = `${text}`;for (let index = 0; index < text.length; index++) {const element = text[index];setTimeout(() => {document.getElementById("textout").innerHTML += `<span style="color:${colorList[index%colorList.length]};">${text[index]}</span>`}, index*speed);         }}
+    </script>
+</body>
+
+</html>

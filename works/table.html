@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            background-color: rgb(40, 184, 164);
+            color: wheat;
+            padding: 10px;
+            border-radius: 10px;
+            margin: auto;
+        }
+
+        td {
+            background-color: rgb(21, 87, 79);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+        h2, h1 {
+            text-align: center;
+            color: wheat;
+        }
+        body {
+            background-color: rgb(19, 51, 47);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Задачи про цикли в циклах</h1>
+    <script>
+        document.write(`<h2>Таблицю множення</h2>`)
+        document.write("<table>");
+        x = 10;
+        y = 10;
+        for (xl = 0; xl <= x; xl++) {
+            document.write("<tr>");
+            for (zl = 0; zl <= y; zl++) {
+                document.write(`<td>${xl}*${zl} = ${xl * zl}</td>`);
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+
+        document.write(`<br><h2>Cтепень числа</h2>`)
+        document.write("<table>");
+        x = 10;
+        y = 10;
+        for (xl = 0; xl <= x; xl++) {
+            document.write("<tr>");
+            for (zl = 0; zl <= y; zl++) {
+                document.write(`<td>${xl}<sup>${zl}</sup> = ${xl ** zl}</td>`);
+            }
+
+            document.write("</tr>");
+        }
+        document.write("</table>");
+        document.write("<br><br><br>");
+
+        
+    </script>
+
+</body>
+
+</html>

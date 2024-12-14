@@ -1,0 +1,152 @@
+:root {
+    --color_black--gray_natural-black: rgb(45, 45, 45);
+    --color_black--gray_natural: rgb(90, 90, 90);
+    --color_black--gray: gray;
+    
+
+    --color_black--black_natural: rgb(99, 99, 99);
+    --color_black--black_natural-black: rgb(52, 44, 44);
+
+    --color_black_-text--normal: rgb(152, 137, 137);
+    --color_black_-text--normal_black: rgb(69, 62, 62);
+
+    --color_black_-border-text--normal_black: rgb(98, 95, 95);
+}
+
+body {
+    background-color: var(--color_black--gray_natural-black);
+}
+
+h1,h2,h3,h4,h5,h6,
+p, span {
+    font-family: "Ubuntu", sans-serif;
+    color: var(--color_black_-text--normal);
+    font-size: calc(100%+20px);
+}
+
+a {
+    text-decoration: none;
+}
+
+.js {
+    color: #ccd216;
+}
+.ts {
+    color: #1a71d5;
+}
+.html {
+    color: #aa4040;
+}
+
+.img {
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.js img {
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(6px);
+}
+.ts img {
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(6px);
+}
+.html img {
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(6px);
+}
+
+.base {
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    margin-top: 10%;
+}
+.base p {
+    background-color: var(--color_black--gray_natural);
+    padding: 10px; 
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.contactme {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 30px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color_black--black_natural-black);
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.works {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 100px;
+}
+.works .work {
+    padding: 11px;
+    border-radius: 7px;
+    display: flow-root;
+    background-color: var(--color_black--black_natural);
+    height: auto;
+}
+.works .work span {
+    color: rgb(211, 211, 211);
+}
+.works .work .writtenin {
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.works .work .name {
+    color: rgb(218, 192, 192);
+    font-weight: bold;
+}
+
+.works .work .lore {
+    color: rgb(166, 157, 157);
+    display: flex;
+    line-break: anywhere;
+}
+
+
+
+
+#menu {
+    display: inline-flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.information .woll {
+    background-color: var(--color_black--gray_natural);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#works {
+    width: 50%;
+}
+#menu {
+    width: 100%;
+}
+
+.works a {
+    cursor: help;
+}

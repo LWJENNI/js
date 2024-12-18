@@ -11,6 +11,11 @@
     --color_black_-text--normal_black: rgb(69, 62, 62);
 
     --color_black_-border-text--normal_black: rgb(98, 95, 95);
+    --main-size: auto;
+
+
+    --color_black_-text--black: rgb(0, 0, 0);
+    --color_black_-text--white: rgb(168, 168, 168);
 }
 
 body {
@@ -20,9 +25,17 @@ body {
 h1,h2,h3,h4,h5,h6,
 p, span {
     font-family: "Ubuntu", sans-serif;
-    color: var(--color_black_-text--normal);
-    font-size: calc(100%+20px);
+    color: var(--color_black_-text--white);
 }
+* {
+    font-size: calc(var(--main-size) * 1px);
+}
+img {
+    height: calc(24px + var(--main-size) * 0.1px);
+    width: auto;
+    max-height: 24px;
+}
+
 
 a {
     text-decoration: none;
@@ -149,4 +162,13 @@ footer {
 
 .works a {
     cursor: help;
+}
+
+
+.settingtext {
+    background-color: var(--color_black--gray);
+    text-align: center;
+    color: var(--color_black--gray_natural-black);
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
 }

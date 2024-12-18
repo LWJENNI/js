@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пори року</title>
+<style>
+    body {
+        background-color: cornflowerblue;
+    }
+    * {
+        font-weight: bold;
+        color: black;
+    }
+    input {
+        border: none;
+        background-color: cadetblue;
+        padding: 10px;
+        border-radius: 7px;
+    }
+</style>
+</head>
+
+<body>
+    <form action="getinformation">
+        <input type="text" id="date"> Введіть місяць або число або пори року
+    </form>
+    <div id="value">
+    </div>
+    <br>
+    <br>
+    <br>
+    <div>
+        <p><strong>Список місяців:</strong></p>
+        <p>Січень, Лютий, Березень, Квітень, Травень, Червень, Липень, Серпень, Вересень, Жовтень, Листопад, Грудень</p>
+        
+        <p><strong>Додаткові можливості:</strong></p>
+        <ul>
+            <li>Підтримуються цифри від 1 до 12.</li>
+            <li>Можна вказувати пори року: Літо, Осінь, Весна, Зима.</li>
+        </ul>
+    </div>
+    
+    <script>
+        const seasons = {
+            "січень": "Зима",
+            "лютий": "Зима",
+            "березень": "Весна",
+            "квітень": "Весна",
+            "травень": "Весна",
+            "червень": "Літо",
+            "липень": "Літо",
+            "серпень": "Літо",
+            "вересень": "Осінь",
+            "жовтень": "Осінь",
+            "листопад": "Осінь",
+            "грудень": "Зима",
+            "1": "Січень",
+            "2": "Лютий",
+            "3": "Березень",
+            "4": "Квітень",
+            "5": "Травень",
+            "6": "Червень",
+            "7": "Липень",
+            "8": "Серпень",
+            "9": "Вересень",
+            "10": "Жовтень",
+            "11": "Листопад",
+            "12": "Грудень",
+            "зима": "Грудень, Січень, Лютий",
+            "весна": "Березень, Квітень, Травень",
+            "літо": "Червень, Липень, Серпень",
+            "осінь": "Вересень, Жовтень, Листопад"
+        }
+        document.getElementById("date").addEventListener("input", function (event) {
+            console.log(event.target.value)
+            value = seasons[event.target.value.toLowerCase()]
+            document.getElementById("value").innerText = value === undefined ? "Немає інформації" : `${value}`;
+        });
+    </script>
+</body>
+
+</html>

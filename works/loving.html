@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ялинка</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ялинка</h1>
+    <p>Ялинка у canvas</p>
+
+    <canvas id="treeCanvas" width="400" height="400"></canvas>
+
+    <script>
+        const canvas = document.getElementById('treeCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function drawTriangle(x, y, width, height, color) {
+            ctx.beginPath();
+            ctx.moveTo(x, y); // Верхняя точка треугольника
+            ctx.lineTo(x - width / 2, y + height); // Левая точка
+            ctx.lineTo(x + width / 2, y + height); // Правая точка
+            ctx.closePath();
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+
+        function drawTree() {
+            const startX = canvas.width / 2; // Центр по горизонтали
+            const startY = 50; // Начальная точка по вертикали
+            const segmentHeight = 50; // Высота каждого сегмента
+            const segmentWidth = 150; // Начальная ширина треугольников
+            const colors = ["rgb(50, 180, 81)",
+                "rgb(12, 124, 38)",
+                "rgb(11, 178, 50)",
+                "rgb(61, 151, 82)"]
+            for (let i = 0; i < 12; i++) {
+                drawTriangle(startX, startY + i * 0.4 * segmentHeight, segmentWidth - (4 - i) * 20, segmentHeight, `${colors[Math.floor(Math.random() * colors.length - 1)]}`)
+                console.log(Math.floor(Math.random() * colors.length))
+            }
+
+            // Рисуем ствол
+            ctx.fillStyle = '#8B4513'; // Коричневый цвет для ствола
+            ctx.fillRect(startX - 15, startY + 5 * segmentHeight, 30, 50); // Сдвигаем ствол по центру
+        }
+
+        drawTree();
+
+    </script>
+</body>
+
+</html>

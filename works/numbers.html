@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Підрахунок цифр у числі</title>
+    <script>
+        function countDigits() {
+            const number = document.getElementById("numberInput").value;
+            const digitCount = number.replace(/\D/g, '').length;
+            document.getElementById("result").textContent = `Кількість цифр: ${digitCount}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Підрахунок цифр у числі</h1>
+    <p>Введіть число:</p>
+    <input type="text" id="numberInput">
+    <button onclick="countDigits()">Підрахувати</button>
+    <p id="result"></p>
+</body>
+</html>

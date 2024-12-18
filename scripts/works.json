@@ -1,80 +1,83 @@
 [
     {
-        "id":"tictactoe",
-        "scr":"/works/tictactoe.html",
-        "title":"Крестики нолики",
-        "name":"Крестики нолики",
-        "lore":"Гра для 1 людини с ии",
-        "writtenin": {
-            "css":true,
-            "html":true,
-            "js":true,
-            "ts":false
-        }
+        "id": "tictactoe",
+        "scr": "/works/tictactoe.html",
+        "title": "Крестики нолики",
+        "name": "Крестики нолики",
+        "description": "Гра для 1 людини з ІІ",
+        "writtenIn": ["css", "html", "js"]
     },
     {
-        "id":"text",
-        "scr":"/works/text.html",
-        "title":"text",
-        "name":"Текст",
-        "lore":"Текст який появляється по n",
-        "writtenin": {
-            "css":true,
-            "html":true,
-            "js":true,
-            "ts":false
-        }
+        "id": "text",
+        "scr": "/works/text.html",
+        "title": "Текст",
+        "name": "Текст",
+        "description": "Текст, який з'являється за умовою",
+        "writtenIn": ["css", "html", "js"]
     },
     {
-        "id":"table",
-        "scr":"/works/table.html",
-        "title":"table",
-        "name":"Табличка множення",
-        "lore":"Табличка множення та степень",
-        "writtenin": {
-            "css":true,
-            "html":true,
-            "js":true,
-            "ts":false
-        }
+        "id": "table",
+        "scr": "/works/table.html",
+        "title": "Таблиця множення",
+        "name": "Таблиця множення",
+        "description": "Таблиця множення та ступінь числа",
+        "writtenIn": ["css", "html", "js"]
     },
     {
-        "id":"format",
-        "scr":"/works/formation.html",
-        "title":"форматирування",
-        "name":"Топ из стран",
-        "lore":"Топ",
-        "writtenin": {
-            "css":true,
-            "html":true,
-            "js":true,
-            "ts":false
-        }
+        "id": "format",
+        "scr": "/works/formation.html",
+        "title": "Форматування",
+        "name": "Топ із країн",
+        "description": "Топ",
+        "writtenIn": ["css", "html", "js"]
     },
     {
-        "id":"factorial",
-        "scr":"/works/factorial.html",
-        "title":"factorial",
-        "name":"Фактариал",
-        "lore":"Фактариал числа",
-        "writtenin": {
-            "css":true,
-            "html":true,
-            "js":true,
-            "ts":false
-        }
+        "id": "factorial",
+        "scr": "/works/factorial.html",
+        "title": "Факторіал",
+        "name": "Факторіал",
+        "description": "Обчислення факторіала числа",
+        "writtenIn": ["css", "html", "js"]
     },
     {
-        "id":"table",
-        "scr":"/works/table.html",
-        "title":"table",
-        "name":"Табличка множення",
-        "lore":"Табличка множення та степень",
-        "writtenin": {
-            "css":true,
-            "html":true,
-            "js":true,
-            "ts":false
-        }
+        "id": "calendar",
+        "scr": "/works/calendar.html",
+        "title": "Календар",
+        "name": "Календар",
+        "description": "Гарний календар!",
+        "writtenIn": ["css", "html", "js"]
+    },
+    {
+        "id": "generatoremojis",
+        "scr": "/works/generatoremoji.html",
+        "title": "Генератор Емодзі",
+        "name": "Емодзі",
+        "description": "Генератор емодзі!",
+        "writtenIn": ["css", "html", "js"]
+    },
+    {
+        "id": "login",
+        "scr": "/works/lopin.html",
+        "title": "Регестрація",
+        "name": "Регестрація",
+        "description": "Гарна Регестрація!",
+        "writtenIn": ["css", "html", "js"]
+    },
+    {
+        "id": "loving",
+        "scr": "/works/loving.html",
+        "title": "Ялинка",
+        "name": "Ялинка",
+        "description": "Ялинка з проклятих canvas",
+        "writtenIn": ["css", "html", "js"]
+    },
+    {
+        "id": "sha",
+        "scr": "/works/chessboard.html",
+        "title": "Шахова дошка",
+        "name": "Шахова дошка",
+        "description": "На 99% із canvas",
+        "writtenIn": ["css", "html", "js"]
     }
+    
 ]

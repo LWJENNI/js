@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --emojis_td: rgb(161, 161, 161);
+            --emojis_top: rgb(109, 109, 109);
+            --emojis_main: rgb(77, 77, 77);
+        }
+
+        body {
+            background-color: rgb(86, 86, 86);
+        }
+
+        #emojis {
+            background-color: var(--emojis_main);
+            position: absolute;
+            padding: 10px;
+        }
+
+        #top-emojis {
+            background-color: var(--emojis_top);
+            display: flex;
+            justify-content: space-between;
+            border-radius: 7px;
+        }
+
+        #top-emojis button {
+            background-color: transparent;
+            border: none;
+        }
+
+        #top-emojis input {
+            background-color: transparent;
+            border: none;
+            width: 70%;
+            height: auto;
+        }
+
+        #top-emojis input[type="number"]::-webkit-outer-spin-button,
+        #top-emojis input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        #main-emojis button {
+            background-color: var(--emojis_td);
+            padding: 10px;
+            border-radius: 7px;
+            width: 100%;
+            height: 100%;
+        }
+
+        #emojis span {
+            color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="emojis">
+        <div id="top-emojis">
+            <input type="number" value="35" id="name-emojis">
+            <div id="buttons-emojis">
+                <button id="emojis-button-back" onclick="emoji('back')"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <button id="emojis-button-next" onclick="emoji('next')"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="main-emojis">
+        </div>
+    </div>
+    <script>
+        // emojis menu
+
+        let index = 120;
+        document.getElementById("name-emojis").addEventListener("input", function (event) {
+            index = event.target.value * 120;
+            emojiupdate(index);
+        });
+
+        function emoji(type) {
+            if (type == "back") {
+                index += -120; emojiupdate(index);
+            } else {
+                index += 120; emojiupdate(index);
+            };
+        };
+        function emojiupdate(index) {
+            const emojisContainer = document.getElementById("main-emojis");
+            emojisContainer.innerHTML = "";
+            const table = document.createElement("table");
+            const tbody = document.createElement("tbody");
+            let row = document.createElement("tr");
+            document.getElementById("name-emojis").value = `${index / 120}`;
+            for (let i = index - 120; i < index; i++) {
+                const cell = document.createElement("td");
+                cell.innerHTML = `<button onclick="copymessange(${i})"><span>&#${i};</span></button>`;
+                row.appendChild(cell);
+                if ((i - (index - 120) + 1) % 12 === 0) {
+                    tbody.appendChild(row);
+                    row = document.createElement("tr");
+                };
+            };
+            table.appendChild(tbody);
+            emojisContainer.appendChild(table);
+        };
+        function copymessange(i) { value = `&#${i};`; navigator.clipboard.writeText(`&#${i};`, value); }
+        emojiupdate(index);
+    </script>
+</body>
+
+</html>

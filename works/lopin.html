@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2d2d2d;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #ddd;
+        }
+
+        .form-container {
+            background-color: #3b3b3b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            width: 300px;
+            text-align: center;
+            padding-right: 30px;
+        }
+
+        .form-container h1 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #ccc;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            background-color: #2a2a2a;
+            border: 1px solid #555;
+            color: #ddd;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            background-color: #555;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #777;
+        }
+
+        ::placeholder {
+            color: #888;
+        }
+    </style>
+    <script>
+        function verifyAge() {
+            const login = document.getElementById('login').value;
+            const password = document.getElementById('password').value;
+            const birthDate = new Date(document.getElementById('birthDate').value);
+            
+            if (!login || !password || isNaN(birthDate.getTime())) {
+                alert("Будь ласка, заповніть усі поля правильно.");
+                return;
+            }
+
+            const today = new Date();
+            const age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            const dayDiff = today.getDate() - birthDate.getDate();
+
+            const is18OrOlder = age > 18 || (age === 18 && (monthDiff > 0 || (monthDiff === 0 && dayDiff >= 0)));
+
+            if (is18OrOlder) {
+                alert("Доступ дозволено.");
+            } else {
+                alert("Доступ заборонено. Вам повинно бути 18 років або більше.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Реєстрація</h1>
+        <form onsubmit="event.preventDefault(); verifyAge();">
+            <label for="login">Логін:</label>
+            <input type="text" id="login" name="null" placeholder="Введіть логін" required>
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" placeholder="Введіть пароль" required>
+
+            <label for="birthDate">Дата народження:</label>
+            <input type="date" id="birthDate" name="birthDate" required>
+
+            <button type="submit">Підтвердити</button>
+        </form>
+    </div>
+</body>
+</html>

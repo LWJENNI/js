@@ -11,19 +11,32 @@
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Tektur:wght@400..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
-    <script src="/js/scripts/main.js"></script>
+    <script src="/scripts/main.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+
 </head>
 
 <body>
     <header>
-
+        <div style="display: none;">
+            <button onclick="setting('text')" class="settingtext">Текст: <span id="setting-text"
+                    style="color: var(--color_black--gray_natural-black);">normal</span></button>
+        </div>
     </header>
-    <main>
-
+    <main>  
         <div class="base">
             <p>Коротко о мені, мене звати Женя, програміст, 13 років живу в киеві вивчаю <span class="js"><img
                         src="./svgs/js.svg" alt="JavaScript" height="24" width="24"></span> & <span class="ts"><img
-                        src="./svgs/ts.svg" alt="TypeScript" height="24" width="24"></span></p>
+                        src="./svgs/ts.svg" alt="TypeScript" height="24" width="24"></span></p><br>
+            <p>
+                Планнии:<br>
+                Виучити фрейморк GrammY,<br>
+                <span style="display: block; margin-top: 5px; margin-bottom: 5px;">Написать олайн гру,<span><br>
+                        Виучити <span class="ts"><img src="svgs/ts.svg" alt="TypeScript"></span>
+            </p>
         </div>
         <div id="menu">
             <div class="works" id="works">
@@ -43,11 +56,15 @@
                     <span>Звичайний чат онлайн</span>
                 </div>
                 <div id="telegram-bot" class="woll">
-                    <h4>Telegram bot</h4>
+                    <h4>Telegram bot <span style="color: rgb(175, 185, 62);">(Update)</span></h4>
                     <span>Бот с розкладом</span>
                 </div>
             </div>
         </div>
+        <h3>GrammY:</h3>
+        <iframe src="https://grammy.dev/uk/" frameborder="0" height="500px" width="100%"
+            style="display: block; margin-bottom: 200px;"></iframe>
+
     </main>
     <footer>
         <div class="contactme">

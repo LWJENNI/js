@@ -114,8 +114,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 {
                     "id": "surcl",
                     "scr": "/works/surcl.html",
-                    "title": "3D",
-                    "name": "3D",
+                    "title": "4D",
+                    "name": "4D",
                     "description": "Бібліотека на допомогу!",
                     "writtenIn": ["css", "html", "js"]
                 },

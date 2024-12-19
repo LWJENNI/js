@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     "scr": "/works/random.html",
                     "title": "Випадкове число",
                     "name": "Випадкове число",
-                    "description": "Все ясно...",
+                    "description": "Все зрозуміло...",
                     "writtenIn": ["css", "html", "js"]
                 }
             ];

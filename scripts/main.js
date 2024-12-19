@@ -48,14 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     "writtenIn": ["css", "html", "js"]
                 },
                 {
-                    "id": "calendar",
-                    "scr": "/works/calendar.html",
-                    "title": "Календар",
-                    "name": "Календар",
-                    "description": "Гарний календар!",
-                    "writtenIn": ["css", "html", "js"]
-                },
-                {
                     "id": "generatoremojis",
                     "scr": "/works/generatoremoji.html",
                     "title": "Генератор Емодзі",

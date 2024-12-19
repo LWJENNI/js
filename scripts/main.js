@@ -118,6 +118,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     "name": "3D",
                     "description": "Бібліотека на допомогу!",
                     "writtenIn": ["css", "html", "js"]
+                },
+                {
+                    "id": "random",
+                    "scr": "/works/random.html",
+                    "title": "Випадкове число",
+                    "name": "Випадкове число",
+                    "description": "Все ясно...",
+                    "writtenIn": ["css", "html", "js"]
                 }
             ];
 

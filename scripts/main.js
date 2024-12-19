@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 {
                     "id": "tictactoe",
                     "scr": "/works/tictactoe.html",
-                    "title": "Крестики нолики",
-                    "name": "Крестики нолики",
-                    "description": "Гра для 1 людини з ІІ",
+                    "title": "Хрестики нолики",
+                    "name": "Хрестики нолики",
+                    "description": "Гра для 1 людини з AI",
                     "writtenIn": ["css", "html", "js"]
                 },
                 {
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     "scr": "/works/calculator.html",
                     "title": "Калькулятор",
                     "name": "Калькулятор",
-                    "description": "Калькулятор года",
+                    "description": "Калькулятор року",
                     "writtenIn": ["css", "html", "js"]
                 },
                 {
@@ -82,9 +82,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 {
                     "id": "login",
                     "scr": "/works/lopin.html",
-                    "title": "Регестрація",
-                    "name": "Регестрація",
-                    "description": "Гарна Регестрація!",
+                    "title": "Реєстрація",
+                    "name": "Реєстрація",
+                    "description": "Гарна реєстрація",
                     "writtenIn": ["css", "html", "js"]
                 },
                 {

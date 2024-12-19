@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4D Cube</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const vertices = [
+            [-1, -1, -1, -1], [1, -1, -1, -1], [1, 1, -1, -1], [-1, 1, -1, -1],
+            [-1, -1, 1, -1], [1, -1, 1, -1], [1, 1, 1, -1], [-1, 1, 1, -1],
+            [-1, -1, -1, 1], [1, -1, -1, 1], [1, 1, -1, 1], [-1, 1, -1, 1],
+            [-1, -1, 1, 1], [1, -1, 1, 1], [1, 1, 1, 1], [-1, 1, 1, 1]
+        ];
+
+        function project4Dto3D(vertex) {
+            const scale = 1 / (2 - vertex[3]);
+            return [
+                vertex[0] * scale,
+                vertex[1] * scale,
+                vertex[2] * scale
+            ];
+        }
+
+        const geometry = new THREE.BufferGeometry();
+        const verticesArray = [];
+        for (let i = 0; i < vertices.length; i++) {
+            const projected = project4Dto3D(vertices[i]);
+            verticesArray.push(projected[0], projected[1], projected[2]);
+        }
+
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(verticesArray, 3));
+
+        const faces = [
+            [0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11], [12, 13, 14, 15],
+            [0, 1, 5, 4], [1, 2, 6, 5], [2, 3, 7, 6], [3, 0, 4, 7],
+            [8, 9, 13, 12], [9, 10, 14, 13], [10, 11, 15, 14], [11, 8, 12, 15],
+            [0, 3, 7, 4], [1, 2, 6, 5], [8, 11, 15, 12], [9, 10, 14, 13]
+        ];
+
+        const faceIndices = [];
+        for (let i = 0; i < faces.length; i++) {
+            const face = faces[i];
+            for (let j = 0; j < face.length; j++) {
+                faceIndices.push(face[j]);
+            }
+        }
+
+        geometry.setIndex(faceIndices);
+
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, side: THREE.DoubleSide, wireframe: false });
+        const mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+
+        const edgesMaterial = new THREE.LineBasicMaterial({ color: 0x000000 });
+        const edgesGeometry = new THREE.BufferGeometry().setFromPoints(verticesArray);
+        const edges = new THREE.LineSegments(edgesGeometry, edgesMaterial);
+        scene.add(edges);
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            for (let i = 0; i < vertices.length; i++) {
+                const vertex = vertices[i];
+                const angle = 0.01;
+                const sinA = Math.sin(angle);
+                const cosA = Math.cos(angle);
+
+                const x = vertex[0];
+                const y = vertex[1];
+                const z = vertex[2];
+                const w = vertex[3];
+
+                vertex[0] = x * cosA - w * sinA;
+                vertex[3] = x * sinA + w * cosA;
+
+                const projected = project4Dto3D(vertex);
+                geometry.attributes.position.array[i * 3] = projected[0];
+                geometry.attributes.position.array[i * 3 + 1] = projected[1];
+                geometry.attributes.position.array[i * 3 + 2] = projected[2];
+            }
+
+            geometry.attributes.position.needsUpdate = true;
+            geometry.computeBoundingSphere();
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: white;
+        }
+        canvas {
+            border: 1px solid black;
+        }
+        .controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        .buttons button {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <input type="text" id="textInput" placeholder="Enter text here">
+        <input type="number" id="speedInput" placeholder="Speed (ms per char)" min="10" value="100">
+        <button id="animateButton">Animate Text</button>
+        <div class="buttons">
+            <button id="leftColor">Left Color</button>
+            <button id="rightColor">Right Color</button>
+            <button id="randomColor">Random Color</button>
+            <button id="rgbColor">RGB Color</button>
+        </div>
+    </div>
+    <canvas id="textCanvas" width="800" height="200"></canvas>
+
+    <script>
+        const canvas = document.getElementById('textCanvas');
+        const ctx = canvas.getContext('2d');
+        const textInput = document.getElementById('textInput');
+        const speedInput = document.getElementById('speedInput');
+        const animateButton = document.getElementById('animateButton');
+        const leftColorButton = document.getElementById('leftColor');
+        const rightColorButton = document.getElementById('rightColor');
+        const randomColorButton = document.getElementById('randomColor');
+        const rgbColorButton = document.getElementById('rgbColor');
+
+        let backgroundColor = 'white';
+
+        function clearCanvas() {
+            ctx.fillStyle = backgroundColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function animateText(text, speed) {
+            clearCanvas();
+            ctx.font = '30px Arial';
+            ctx.fillStyle = 'black';
+            let x = 10;
+            let y = canvas.height / 2;
+            let index = 0;
+
+            function draw() {
+                if (index < text.length) {
+                    ctx.fillText(text[index], x, y);
+                    x += ctx.measureText(text[index]).width;
+                    index++;
+                    setTimeout(draw, speed);
+                }
+            }
+            draw();
+        }
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function getRGBColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        animateButton.addEventListener('click', () => {
+            const text = textInput.value;
+            const speed = parseInt(speedInput.value, 10) || 100;
+            animateText(text, speed);
+        });
+
+        leftColorButton.addEventListener('click', () => {
+            backgroundColor = 'lightblue';
+            clearCanvas();
+        });
+
+        rightColorButton.addEventListener('click', () => {
+            backgroundColor = 'lightgreen';
+            clearCanvas();
+        });
+
+        randomColorButton.addEventListener('click', () => {
+            backgroundColor = getRandomColor();
+            clearCanvas();
+        });
+
+        rgbColorButton.addEventListener('click', () => {
+            backgroundColor = getRGBColor();
+            clearCanvas();
+        });
+    </script>
+</body>
+</html>

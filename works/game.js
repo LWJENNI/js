@@ -65,7 +65,7 @@ function handleCellClick(event) {
                         document.getElementById("text").innerText = `Дурний чоловічок переміг`;
                         gameplayer = ''
                     } else {
-                        document.getElementById("text").innerText = `Нічья!`;
+                        document.getElementById("text").innerText = `Нічия!`;
                         gameplayer = ''
                     }
                 }

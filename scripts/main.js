@@ -110,6 +110,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     "name": "Ялинка",
                     "description": "Ялинка з проклятих canvas",
                     "writtenIn": ["css", "html", "js"]
+                },
+                {
+                    "id": "text2",
+                    "scr": "/works/text2.html",
+                    "title": "Текст 2",
+                    "name": "Текст 2",
+                    "description": "Текст на canvas",
+                    "writtenIn": ["css", "html", "js"]
+                },
+                {
+                    "id": "surcl",
+                    "scr": "/works/surcl.html",
+                    "title": "3D",
+                    "name": "3D",
+                    "description": "Бібліотека на допомогу!",
+                    "writtenIn": ["css", "html", "js"]
                 }
             ];
 
